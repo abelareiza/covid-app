@@ -30,7 +30,7 @@ class _CovidApp extends State<CovidApp> {
     return Scaffold(
       body: widgetsChildren[indexTap],
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(canvasColor: Colors.white, primaryColor: Colors.grey),
+        data: Theme.of(context).copyWith(canvasColor: Color(0xFFFAFAFA), primaryColor: Color(0xFF41444b)),
         child: BottomNavigationBar(
           onTap: onTapTapped,
           currentIndex: indexTap,

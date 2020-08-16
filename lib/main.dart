@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: CovidApp()
       ),
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false
     );
   }
 }
