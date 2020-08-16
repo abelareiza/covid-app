@@ -6,7 +6,7 @@ import 'dart:convert';
 class HomeCountries extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MyHomePage(title: "Covid-19");
+    return MyHomePage();
   }
 }
 
@@ -38,9 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Container(
         child: FutureBuilder(
             future: _getCountries(),
