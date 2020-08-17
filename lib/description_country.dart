@@ -13,7 +13,7 @@ class CountryCard extends StatelessWidget {
       child: Text(
         name,
         textAlign: TextAlign.left,
-        style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w800),
+        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
       ),
     );
 
@@ -26,25 +26,26 @@ class CountryCard extends StatelessWidget {
     );
 
     final countryDetails = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[countryName, countryInfo],
     );
 
     final countryFlag = Container(
-      margin: EdgeInsets.all(10.0),
-      child: CircleAvatar(
-        radius: 30.0,
-        backgroundImage:
-            NetworkImage("https://www.countryflags.io/co/flat/64.png"),
-      ),
-    );
+        margin: EdgeInsets.all(10.0),
+        child: CircleAvatar(
+            radius: 32.0,
+            backgroundImage:
+                NetworkImage('https://www.countryflags.io/co/flat/64.png'),
+            backgroundColor: Colors.transparent));
 
     final countryView = Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[countryFlag, countryDetails],
     );
 
     final countryCard = Container(
       height: 90.0,
-      width: 400.0,
+      width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -53,7 +54,7 @@ class CountryCard extends StatelessWidget {
           boxShadow: <BoxShadow>[
             BoxShadow(
                 color: Colors.black38,
-                blurRadius: 15.0,
+                blurRadius: 9.0,
                 offset: Offset(0.0, 7.0))
           ]),
       child: countryView,
