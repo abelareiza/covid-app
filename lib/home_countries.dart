@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
+import 'description_country.dart';
 
 class HomeCountries extends StatelessWidget {
   @override
@@ -52,11 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(snapshot.data[index].name),
-                      subtitle: Text('Confirmados: ' +
-                          snapshot.data[index].totalConfirmed.toString()),
-                      trailing: Icon(Icons.bookmark_border),
+                    return CountryCard(
+                        snapshot.data[index].name,
+                        snapshot.data[index].totalConfirmed.toString()
                     );
                   },
                 );
