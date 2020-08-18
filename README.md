@@ -1,6 +1,6 @@
-# flutter_app
+# Corona Trail
 
-A new Flutter application.
+A new Flutter application to monitor coronavirus cases around the world.
 
 ## Getting Started
 
