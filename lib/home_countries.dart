@@ -25,17 +25,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<List<Country>> _getCountries() async {
-    var data = await http.get("http://api.covid19api.com/summary");
+    var data = await http.get("https://api.covid19api.com/summary");
     var jsonData = json.decode(data.body);
 
     List<Country> countries = [];
 
     for (var x in jsonData["Countries"]) {
-      Country country = Country(x["Country"], x["TotalConfirmed"],
-          x["TotalDeaths"], x["TotalRecovered"], x["CountryCode"]);
+      Country country = Country(x["Country"], x["CountryCode"],
+          x["TotalConfirmed"], x["TotalDeaths"], x["TotalRecovered"]);
       countries.add(country);
     }
-    print(countries.length);
     return countries;
   }
 
@@ -43,13 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(color: Color(0xFFf2efeb)),
         child: FutureBuilder(
             future: _getCountries(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.data == null) {
                 return Container(
                   child: Center(
-                    child: Text("Cargando...")
+                      child: CircularProgressIndicator(
+                          backgroundColor: Color(0xFF41444b),
+                          valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFf6ac07)
+                          )
+                      )
                   ),
                 );
               } else {
@@ -58,9 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemBuilder: (BuildContext context, int index) {
                     return CountryCard(
                         snapshot.data[index].name,
-                        formatter.format(snapshot.data[index].totalConfirmed).toString(),
-                        snapshot.data[index].countryCode.toLowerCase()
-                    );
+                        formatter
+                            .format(snapshot.data[index].totalConfirmed)
+                            .toString(),
+                        snapshot.data[index].countryCode.toLowerCase());
                   },
                 );
               }
@@ -72,11 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class Country {
   final String name;
+  final String countryCode;
   final int totalConfirmed;
   final int totalDeaths;
   final int totalRecovered;
-  final String countryCode;
 
-  Country(
-      this.name, this.totalConfirmed, this.totalDeaths, this.totalRecovered, this.countryCode);
+  Country(this.name, this.countryCode, this.totalConfirmed, this.totalDeaths,
+      this.totalRecovered);
 }

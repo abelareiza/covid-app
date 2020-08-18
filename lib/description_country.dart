@@ -60,7 +60,7 @@ class CountryCard extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15.0)),
           shape: BoxShape.rectangle,
-          color: Colors.white,
+          color: Color(0xFFFAFAFA),
           boxShadow: <BoxShadow>[
             BoxShadow(
                 color: Colors.black38,

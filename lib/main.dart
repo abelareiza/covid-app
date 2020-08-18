@@ -9,10 +9,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: CovidApp()
-      ),
-      debugShowCheckedModeBanner: false
-    );
+        home: Scaffold(body: CovidApp()), debugShowCheckedModeBanner: false);
   }
 }

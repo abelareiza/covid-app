@@ -30,23 +30,16 @@ class _CovidApp extends State<CovidApp> {
     return Scaffold(
       body: widgetsChildren[indexTap],
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(canvasColor: Color(0xFFFAFAFA), primaryColor: Color(0xFF41444b)),
+        data: Theme.of(context).copyWith(
+            canvasColor: Color(0xFFFAFAFA), primaryColor: Color(0xFF41444b)),
         child: BottomNavigationBar(
           onTap: onTapTapped,
           currentIndex: indexTap,
           items: [
+            BottomNavigationBarItem(icon: Icon(Icons.public), title: Text("")),
+            BottomNavigationBarItem(icon: Icon(Icons.search), title: Text("")),
             BottomNavigationBarItem(
-              icon: Icon(Icons.public),
-              title: Text("")
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                title: Text("")
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.collections_bookmark),
-                title: Text("")
-            )
+                icon: Icon(Icons.collections_bookmark), title: Text(""))
           ],
         ),
       ),
