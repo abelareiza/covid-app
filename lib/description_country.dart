@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'floating_action_button_add_fav.dart';
 
 class CountryCard extends StatelessWidget {
+
   String name;
   String totalCases;
+  String countryCode;
 
-  CountryCard(this.name, this.totalCases);
+  CountryCard(this.name, this.totalCases, this.countryCode);
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +23,30 @@ class CountryCard extends StatelessWidget {
       child: Text(
         totalCases,
         textAlign: TextAlign.left,
-        style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w400),
+        style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
       ),
     );
 
-    final countryDetails = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[countryName, countryInfo],
+    final countryDetails = Container(
+      margin: EdgeInsets.only(
+        left: 10.0
+      ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[countryName, countryInfo],
+        )
     );
 
     final countryFlag = Container(
         margin: EdgeInsets.all(10.0),
         child: CircleAvatar(
-            radius: 32.0,
+            radius: 28.0,
             backgroundImage:
-                NetworkImage('https://www.countryflags.io/co/flat/64.png'),
-            backgroundColor: Colors.transparent));
+                NetworkImage('https://flagpedia.net/data/flags/normal/$countryCode.png'),
+            backgroundColor: Colors.transparent
+        )
+    );
 
     final countryView = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,8 +64,8 @@ class CountryCard extends StatelessWidget {
           boxShadow: <BoxShadow>[
             BoxShadow(
                 color: Colors.black38,
-                blurRadius: 9.0,
-                offset: Offset(0.0, 7.0))
+                blurRadius: 10.0,
+                offset: Offset(0.0, 5.0))
           ]),
       child: countryView,
     );

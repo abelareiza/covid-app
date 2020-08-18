@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 import 'description_country.dart';
+import 'package:intl/intl.dart';
+
+var formatter = NumberFormat('##,###,#00', 'fr');
 
 class HomeCountries extends StatelessWidget {
   @override
@@ -22,14 +25,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<List<Country>> _getCountries() async {
-    var data = await http.get("https://api.covid19api.com/summary");
+    var data = await http.get("http://api.covid19api.com/summary");
     var jsonData = json.decode(data.body);
 
     List<Country> countries = [];
 
     for (var x in jsonData["Countries"]) {
       Country country = Country(x["Country"], x["TotalConfirmed"],
-          x["TotalDeaths"], x["TotalRecovered"]);
+          x["TotalDeaths"], x["TotalRecovered"], x["CountryCode"]);
       countries.add(country);
     }
     print(countries.length);
@@ -55,7 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemBuilder: (BuildContext context, int index) {
                     return CountryCard(
                         snapshot.data[index].name,
-                        snapshot.data[index].totalConfirmed.toString()
+                        formatter.format(snapshot.data[index].totalConfirmed).toString(),
+                        snapshot.data[index].countryCode.toLowerCase()
                     );
                   },
                 );
@@ -71,7 +75,8 @@ class Country {
   final int totalConfirmed;
   final int totalDeaths;
   final int totalRecovered;
+  final String countryCode;
 
   Country(
-      this.name, this.totalConfirmed, this.totalDeaths, this.totalRecovered);
+      this.name, this.totalConfirmed, this.totalDeaths, this.totalRecovered, this.countryCode);
 }
