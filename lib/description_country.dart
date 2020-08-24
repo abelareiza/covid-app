@@ -15,7 +15,7 @@ class CountryCard extends StatelessWidget {
       child: Text(
         name,
         textAlign: TextAlign.left,
-        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500, fontFamily: "Poppins"),
       ),
     );
 
@@ -23,7 +23,7 @@ class CountryCard extends StatelessWidget {
       child: Text(
         totalCases,
         textAlign: TextAlign.left,
-        style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400),
+        style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, fontFamily: "Poppins"),
       ),
     );
 
@@ -63,15 +63,15 @@ class CountryCard extends StatelessWidget {
           color: Color(0xFFFAFAFA),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.black38,
-                blurRadius: 10.0,
-                offset: Offset(0.0, 5.0))
+                color: Color(0xFF888888),
+                blurRadius: 15.0,
+                offset: Offset(0.0, 9.0))
           ]),
       child: countryView,
     );
 
     return Stack(
-      alignment: Alignment.centerRight,
+      alignment: Alignment(0.9, 0.05),
       children: <Widget>[countryCard, FloatingActionButtonAddFav()],
     );
   }
