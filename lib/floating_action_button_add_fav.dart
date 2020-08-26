@@ -19,10 +19,10 @@ class _FloatingActionButtonAddFav extends State<FloatingActionButtonAddFav> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      backgroundColor: Color(pressed ? 0xFF5f6caf : 0xFF5b5656),
+      backgroundColor: Color(pressed ? 0xFFd83246 : 0xFFCCCCCC),
       mini: true,
       onPressed: onPressedFav,
-      child: Icon(pressed ? Icons.bookmark : Icons.bookmark_border),
+      child: Icon(pressed ? Icons.bookmark : Icons.bookmark),
     );
   }
 }

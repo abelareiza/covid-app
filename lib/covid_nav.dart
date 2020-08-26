@@ -31,15 +31,14 @@ class _CovidApp extends State<CovidApp> {
       body: widgetsChildren[indexTap],
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-            canvasColor: Color(0xFFFAFAFA), primaryColor: Color(0xFF41444b)),
+            canvasColor: Color(0xFFFAFAFA), primaryColor: Color(0xFF888888)),
         child: BottomNavigationBar(
           onTap: onTapTapped,
           currentIndex: indexTap,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.public), title: Text("")),
             BottomNavigationBarItem(icon: Icon(Icons.search), title: Text("")),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.collections_bookmark), title: Text(""))
+            BottomNavigationBarItem(icon: Icon(Icons.collections_bookmark), title: Text(""))
           ],
         ),
       ),

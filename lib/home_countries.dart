@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Color(0xFFf2efeb)),
+        decoration: BoxDecoration(color: Color(0xFFf2f6f9)),
         child: FutureBuilder(
             future: _getCountries(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -50,8 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 return Container(
                   child: Center(
                       child: CircularProgressIndicator(
-                          backgroundColor: Color(0xFF41444b),
-                          valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFf6ac07)
+                          backgroundColor: Color(0xFF273d66),
+                          strokeWidth: 6.0,
+                          valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF7292cb)
                           )
                       )
                   ),
